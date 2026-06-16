@@ -1,47 +1,66 @@
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Scanner;
 
 import contenido.Pelicula;
+import plataforma.Plataforma;
 import plataforma.Usuario;
+import util.ScannerUtils;
 
 public class Main {
+    public static final String VERSION = "1.0.0";
+    public static final String NOMBREPLATAFORMA = "Platzy Play";
+
     public static void main(String[] args) {
-        System.out.println("Platzi play");
+        Plataforma plataforma = new Plataforma(NOMBREPLATAFORMA);
+        System.out.println(NOMBREPLATAFORMA + " v" + VERSION);
 
-        Pelicula pelicula = new Pelicula();
-        pelicula.titulo = "El Origen";
-        pelicula.fechaEstreno = LocalDate.of(2024, 11, 5);
-        pelicula.genero = "Fantasía";
-        pelicula.calificar(4);
-        pelicula.duracion = 120;
+        // 1. Agregar contenido
+        // 2. Mostrar todo
+        // 3. Buscar por titulo
+        // 4. Eliminar
+        // 5. Salir
+
+        while(true){
+            int opcionElegida = ScannerUtils.capturarNumero("""
+                Ingrese una se las siguientes opciones: 
+                    1. Agregar contenido
+                    2. Mostrar todo
+                    3. Buscar por titulo
+                    4. Eliminar
+                    5. Salir
+            """);
+            System.out.println("Opción elegida: " + opcionElegida);
+
+            if (opcionElegida == 5){
+                System.exit(0);
+            }
+        }
+
+        // String nombre = ScannerUtils.capturarTexto("Nombre del contenido");
+        // String genero = ScannerUtils.capturarTexto("Nombre del genero");
+        // int duracion = ScannerUtils.capturarNumero("Duración");
+        // double calificacion = ScannerUtils.capturarDecimal("Calificación");
+
         
-        long duracionLong = pelicula.duracion;
-        System.out.println(duracionLong);
-
-        //System.out.println(pelicula.obtenerFichaTecnica());
-
-        Usuario usuario = new Usuario();
-        usuario.nombre = "Juan";
-        usuario.fechaRegistro =  LocalDateTime.of(2014, 11, 30, 17, 52);
-
+        // Pelicula pelicula = new Pelicula(nombre, duracion, genero, calificacion); 
+        // Pelicula pelicula2 = new Pelicula("F1", 220, "Acción"); 
+        // //pelicula.calificar(calificacion);
         
-        //usuario.ver(pelicula);
+        // plataforma.agregar(pelicula);
+        // plataforma.agregar(pelicula2);
+        // System.out.println("Número de elementos en la plataforma: " + plataforma.getContenido().size());
+        // plataforma.mostrarTitulos();
+        
 
 
+        // //Casteo
+        // /*long duracionLong = pelicula.duracion;
+        // int calificacionInt = (int) pelicula.calificacion; //De esta manera se hace el casteo de una variable
+        // long numeroDePremios =  (int) Long.parseLong("25798798798798"); // De esta manera se convierte de String a Long, si quisiera que fuera un int tendría que hacer lo del paso de arriba. 
+        // */
 
-        /*Scanner scanner = new Scanner(System.in);
-        System.out.println("Cuál es tu nombre?");
-        String nombre = scanner.nextLine();
+        // //System.out.println(pelicula.obtenerFichaTecnica());
 
-        System.out.println("Hola " + nombre + ", estás en platzi");
-
-        System.out.println(nombre + "Cuántos años tienes?");
-        int edad = scanner.nextInt();
-
-        System.out.println(nombre + " puedes ver contenido +" + edad);*/
-
-
+        // Usuario usuario = new Usuario("Juan", "juan@openintl.com");
+        // usuario.ver(pelicula);
         
     }
 }
