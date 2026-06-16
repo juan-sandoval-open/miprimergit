@@ -21,8 +21,15 @@ public class Pelicula {
             
         }
 
-        public void verFichaTecnica(){
+        public void calificar(double calificacion){
+            if(calificacion >= 0 && calificacion <= 5){
+                this.calificacion = calificacion; 
+            }
             
+        }
+
+        public boolean esPopular(){
+            return calificacion >= 4;
         }
 
 }
