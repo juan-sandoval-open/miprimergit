@@ -6,24 +6,27 @@ public class Pelicula {
         private String titulo;
         private String description;
         private int duracion;
-        private String genero;
+        private Genero genero;
         private LocalDate fechaEstreno;
         private double calificacion;
         private boolean disponible;
+        private Idioma lenguaje;
 
-        public Pelicula(String titulo, int duracion, String genero){ // Permite generar acciones de la pelicula
+
+        public Pelicula(String titulo, int duracion, Genero genero, Idioma lenguaje){ 
             this.titulo = titulo;
             this.duracion = duracion;
             this.genero = genero;
+            this.lenguaje = lenguaje;
             this.fechaEstreno = LocalDate.now();
             this.disponible = true;
         }
         
 
 
-        public Pelicula(String titulo, int duracion, String genero, 
+        public Pelicula(String titulo, int duracion, Genero genero, Idioma lenguaje, 
                 double calificacion) {
-            this(titulo, duracion, genero);
+            this(titulo, duracion, genero, lenguaje);
             this.calificar(calificacion);
             
         }
@@ -67,7 +70,7 @@ public class Pelicula {
             return duracion;
         }
 
-        public String getGenero() {
+        public Genero getGenero() {
             return genero;
         }
 
@@ -81,6 +84,10 @@ public class Pelicula {
 
         public boolean isDisponible() {
             return disponible;
+        }
+
+        public Idioma getLenguaje() {
+            return lenguaje;
         }
 
         // Setters
