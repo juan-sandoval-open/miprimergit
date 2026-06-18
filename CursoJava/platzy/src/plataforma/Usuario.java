@@ -1,8 +1,8 @@
 package plataforma;
 
 
+import contenido.Contenido;
 import java.time.LocalDateTime;
-import contenido.Pelicula;
 
 
 public class Usuario {
@@ -20,7 +20,7 @@ public class Usuario {
 
 
 
-    public void ver(Pelicula pelicula){
+    public void ver(Contenido pelicula){
         System.out.println(nombre + " está " );
         pelicula.reproducir();
 
